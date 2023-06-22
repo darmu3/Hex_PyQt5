@@ -2,9 +2,8 @@ import math
 import sys
 
 from PyQt5.QtCore import QPointF, Qt
-from PyQt5.QtGui import QBrush, QPen, QPolygonF, QTransform, QFont, QColor, QMouseEvent
-from PyQt5.QtWidgets import QApplication, QGraphicsScene, QGraphicsView, QGraphicsPolygonItem, QGraphicsTextItem, \
-    QPushButton, QMessageBox
+from PyQt5.QtGui import QBrush, QPen, QPolygonF, QTransform, QColor, QMouseEvent
+from PyQt5.QtWidgets import QApplication, QGraphicsScene, QGraphicsView, QGraphicsPolygonItem, QPushButton, QMessageBox
 
 
 class GameBoardWindow(QGraphicsView):
@@ -21,9 +20,6 @@ class GameBoardWindow(QGraphicsView):
         self.actual_color = None  # Текущий цвет (зеленый или синий)
         self.Win = False
 
-        self.cols = 11  # количество столбцов
-        self.rows = 11  # количество рядов
-
         self.n = 6  # n - количество углов у фигуры
         self.circumradius = 35  # внешний радиус
         self.inradius = self.circumradius / 2 * math.sqrt(3)  # внутренний радиус
@@ -33,8 +29,9 @@ class GameBoardWindow(QGraphicsView):
         self.start_y = 0  # начало строки по верхней точке (верхнее значение)
 
         self.clickable_areas = {}
-
         self.neighbors = {}
+
+        self.exit_button = None  # Кнопка выхода
 
         # Переменные для графики и GUI
         self.pen = QPen(QColor('#222222'))  # Цвет пера для контура гексагона
@@ -43,8 +40,6 @@ class GameBoardWindow(QGraphicsView):
 
         self.scene = QGraphicsScene(self)
         self.setScene(self.scene)
-
-        self.exit_button = None  # Кнопка выхода
 
         self.create_game_field()
         self.create_exit_button()

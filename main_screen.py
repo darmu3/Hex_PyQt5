@@ -18,10 +18,6 @@ class MainWindow(QtWidgets.QWidget):
         # устанавливаем координаты окна
         self.move(x, y)
 
-        self.setStyleSheet(
-            "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(81, 0, 135, 255),"
-            "stop:0.427447 rgba(41, 61, 132, 235), stop:1 rgba(155, 79, 165, 255))\n")
-
         self.verticalLayout_main = QtWidgets.QVBoxLayout(self)
 
         self.Logo = QtWidgets.QLabel(self)

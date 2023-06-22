@@ -8,7 +8,6 @@ class NewWindow(QtWidgets.QWidget):
         self.setObjectName("NewWindow")
         self.setWindowTitle("Rules")
         self.setMinimumSize(800, 600)  # Установка минимального размера окна
-        # self.setMaximumSize(1400, 900)  # Установка максимального размера окна
         screen_size = QtWidgets.QApplication.desktop().screenGeometry()
         x = (screen_size.width() - self.width()) // 2
         y = (screen_size.height() - self.height()) // 2

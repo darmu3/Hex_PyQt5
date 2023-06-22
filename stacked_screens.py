@@ -1,9 +1,7 @@
-# Основной файл
-
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QStackedWidget
 from main_screen import MainWindow
 from rule_scrn import NewWindow
-from game import GameBoardWindow  # Импорт вашего класса MyGraphicsView
+from game import GameBoardWindow
 
 
 class StackedWindow(QMainWindow):
@@ -16,16 +14,15 @@ class StackedWindow(QMainWindow):
         # Создание экземпляров экранов
         screen1 = MainWindow()
         screen2 = NewWindow()
-        screen3 = GameBoardWindow()  # Создание экземпляра окна MyGraphicsView
+        screen3 = GameBoardWindow()
 
         # Добавление экранов в QStackedWidget
         self.stackedWidget.addWidget(screen1)
         self.stackedWidget.addWidget(screen2)
-        self.stackedWidget.addWidget(screen3)  # Добавление окна MyGraphicsView
+        self.stackedWidget.addWidget(screen3)
 
-        self.setCentralWidget(QWidget())  # Создание основного виджета
+        self.setCentralWidget(QWidget())
 
-        # Настройка компоновки
         layout = QVBoxLayout(self.centralWidget())
         layout.addWidget(self.stackedWidget)
 
@@ -36,7 +33,7 @@ class StackedWindow(QMainWindow):
         screen2.back_btn.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(screen1))
         screen3.exit_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(screen1))
 
-        # Установка минимального
+        # Установка минимального размера окна
         self.setMinimumSize(820, 620)
 
 
